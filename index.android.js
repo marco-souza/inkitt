@@ -4,80 +4,84 @@
  * @flow
  */
 
-import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View,
-  ScrollView
-} from 'react-native';
-import HTMLView from "react-native-htmlview";
+import React, { Component } from "react"
+import { AppRegistry, StyleSheet, Text, View, ScrollView } from "react-native"
+import HTMLView from "react-native-htmlview"
 import axios from "axios"
 import styles from "./styles"
+import Loader from "./src/components/Loader"
 
 export default class inkitt extends Component {
-
-  /**
+    /**
    * Estimate how much time an average read will take to read the text
    *
    * @param {number} words
    * @returns {string} "~ # min read"
    * @memberof inkitt
    */
-  timeSpent(words) {
-      const avgSpeedReading = 200 // wpm
-      return `~ ${ Math.round( words/(avgSpeedReading) )} min read`
-  }
-
-  constructor() {
-    super()
-    this.state = {
-        htmlContent: "",
-        title: "loading...",
-        words: ""
+    timeSpent(words) {
+        const avgSpeedReading = 200 // wpm
+        return `~ ${Math.round(words / avgSpeedReading)} min read`
     }
-  }
 
-  componentWillMount() {
-    // TODO: mock information for unit test
-    // TODO: Make a loader component
+    constructor() {
+        super()
 
-    // Fetch data
-    axios.get('https://cap_america.inkitt.de/1/stories/106766/chapters/1')
-      .then((res) => res.data.response)
-      .then((res) => {
-        // set state
-        this.setState({
-          htmlContent: res.text,
-          title: res.name,
-          words: `${this.timeSpent(res.words_count)}`
-        })
-      })
+        // Set Initial State
+        this.state = {
+            htmlContent: "",
+            title: "",
+            words: "",
+            loaded: false
+        }
+    }
 
-  }
+    componentWillMount() {
+        // TODO: mock information for unit test
 
-  render() {
-    return (
-        <View style={{ flex: 1, flexDirection: 'column' }}>
+        // Fetch data
+        axios
+            .get("https://cap_america.inkitt.de/1/stories/106766/chapters/1")
+            .then(res => res.data.response)
+            .then(res => {
+                // set state
+                this.setState({
+                    htmlContent: res.text,
+                    title: res.name,
+                    words: `${this.timeSpent(res.words_count)}`,
+                    loaded: true
+                })
+            })
+            // Catch Network Error
+            .catch((e: Error) => {
+                this.setState({
+                    error:  e.message
+                })
+            })
+    }
 
-            <View style={styles.header}>
-                <Text style={styles.title}>{this.state.title}</Text>
-                <Text style={styles.words}>{this.state.words}</Text>
-            </View>
+    render() {
+        // if not loaded, return Loader, else, render content
+        if (!this.state.loaded) return <Loader error={this.state.error} />
 
-
-            <ScrollView>
-                <View style={styles.container}>
-                    {/* TODO: pass style */}
-                    <HTMLView value={this.state.htmlContent} stylesheet={styles.htmlContent} />
+        return (
+            <View style={{ flex: 1, flexDirection: "column" }}>
+                <View style={styles.header}>
+                    <Text style={styles.title}>{this.state.title}</Text>
+                    <Text style={styles.words}>{this.state.words}</Text>
                 </View>
-            </ScrollView>
 
-        </View>
-    );
-  }
+                <ScrollView>
+                    <View style={styles.container}>
+                        <HTMLView
+                            value={this.state.htmlContent}
+                            stylesheet={styles.htmlContent}
+                        />
+                    </View>
+                </ScrollView>
+            </View>
+        )
+    }
 }
 
-
-AppRegistry.registerComponent('inkitt', () => inkitt);
+AppRegistry.registerComponent("inkitt", () => inkitt)
