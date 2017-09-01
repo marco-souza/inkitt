@@ -12,7 +12,7 @@ import styles from "./styles"
 import Loader from "./src/components/Loader"
 
 export default class inkitt extends Component {
-    /**
+   /**
    * Estimate how much time an average read will take to read the text
    *
    * @param {number} words
@@ -20,8 +20,8 @@ export default class inkitt extends Component {
    * @memberof inkitt
    */
     timeSpent(words) {
-        const avgSpeedReading = 200 // wpm
-        return `~ ${Math.round(words / avgSpeedReading)} min read`
+        const avgReadingSpeed = 200 // wpm
+        return `~ ${Math.round(words / avgReadingSpeed)} min read`
     }
 
     constructor() {
@@ -31,14 +31,12 @@ export default class inkitt extends Component {
         this.state = {
             htmlContent: "",
             title: "",
-            words: "",
+            readingTime: "",
             loaded: false
         }
     }
 
     componentWillMount() {
-        // TODO: mock information for unit test
-
         // Fetch data
         axios
             .get("https://cap_america.inkitt.de/1/stories/106766/chapters/1")
@@ -48,7 +46,7 @@ export default class inkitt extends Component {
                 this.setState({
                     htmlContent: res.text,
                     title: res.name,
-                    words: `${this.timeSpent(res.words_count)}`,
+                    readingTime: `${this.timeSpent(res.words_count)}`,
                     loaded: true
                 })
             })
@@ -68,7 +66,7 @@ export default class inkitt extends Component {
             <View style={{ flex: 1, flexDirection: "column" }}>
                 <View style={styles.header}>
                     <Text style={styles.title}>{this.state.title}</Text>
-                    <Text style={styles.words}>{this.state.words}</Text>
+                    <Text style={styles.readingTime}>{this.state.readingTime}</Text>
                 </View>
 
                 <ScrollView>
@@ -82,7 +80,6 @@ export default class inkitt extends Component {
             </View>
         )
     }
-    // TODO: Test ()
 }
 
 AppRegistry.registerComponent("inkitt", () => inkitt)

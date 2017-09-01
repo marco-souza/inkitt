@@ -1,0 +1,43 @@
+exports[`Test Loader with error`] = `
+<View
+  style={
+    Object {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center"
+    }
+  }>
+
+  <Text>
+    Loading...
+  </Text>
+
+  <Pulse size={20} color="#bbb" />
+
+  <Text>
+    Test
+  </Text>
+
+</View>
+`;
+
+exports[`Test Loader with error`] = `
+<View
+  style={
+    Object {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center"
+    }
+  }>
+
+  <Text>
+    Loading...
+  </Text>
+
+  <Pulse size={20} color="#bbb" />
+
+  <Text></Text>
+
+</View>
+`;
