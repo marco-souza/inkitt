@@ -1,7 +1,7 @@
 import React from "react"
 import { Pulse } from "react-native-loader"
 import { View, Text } from "react-native"
-simport styles from "./styles"
+import styles from "./styles"
 
 type Props = {
     error: ?string
