@@ -82,6 +82,7 @@ export default class inkitt extends Component {
             </View>
         )
     }
+    // TODO: Test ()
 }
 
 AppRegistry.registerComponent("inkitt", () => inkitt)

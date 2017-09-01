@@ -1,0 +1,11 @@
+{
+    "setupTestFrameworkScriptFile": "./node_modules/jest-enzyme/lib/index.js",
+    "unmockedModulePathPatterns": [
+        "react",
+        "react-native",
+        "enzyme",
+        "jest-enzyme",
+        "node_modules/react/",
+        "node_modules/enzyme/"
+    ]
+}
