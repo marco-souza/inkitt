@@ -1,6 +1,6 @@
 # Inkitt Test - React Native Android App
 
-![App Preview](https://github.com/marco-souza/inkitt/src/assets/gif/app.gif "App running")
+![App Preview](https://github.com/marco-souza/inkitt/blob/master/src/assets/gif/app.gif)
 
 This test aims to get a **html** text from an endpoint and **parse** it to **Native Components, not as webview**.
 
