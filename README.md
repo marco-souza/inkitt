@@ -1,5 +1,7 @@
 # Inkitt Test - React Native Android App
 
+![App Preview](https://github.com/marco-souza/inkitt/src/assets/gif/app.gif "App running")
+
 This test aims to get a **html** text from an endpoint and **parse** it to **Native Components, not as webview**.
 
 To solve this task I used :
@@ -7,6 +9,7 @@ To solve this task I used :
 - the open-source component `react-native-htmlview` made by **jsdf** in https://github.com/jsdf/react-native-htmlview#install.
 - `axios` for http requests
 - `flow` for typing JavaScript
+- `jest` for tests
 - `react-native-loader` to create a Pulse Loader Component
 
 ## App Features
@@ -19,7 +22,6 @@ To solve this task I used :
 
 - To start a React-Native Server: `npm run android`
 - To clean the project: `npm run clean`
-- To test the project: `npm test`
 
 ## Registred App
 
