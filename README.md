@@ -17,7 +17,7 @@ For solve this task I used :
 
 ## Commands
 
-- To start a React-Native Server: `npm start`
+- To start a React-Native Server: `npm run android`
 - To clean the project: `npm run clean`
 - To test the project: `npm test`
 

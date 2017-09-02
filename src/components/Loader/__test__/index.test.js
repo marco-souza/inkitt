@@ -1,11 +1,15 @@
+import "react-native"
 import React from "react"
-import { shallow, render } from "enzyme"
 import Loader from "../index"
 
 // Note: test renderer must be required after react-native.
 import renderer from "react-test-renderer"
 
 describe("Test Loader Component", () => {
+    it("renders correctly", () => {
+        const tree = renderer.create(<Loader />)
+    })
+
     it("Test Loader with error", () => {
         const errorMessage = "Test",
             tree = renderer.create(<Loader error={errorMessage} />).toJSON()
