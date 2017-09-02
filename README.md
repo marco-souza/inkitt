@@ -1,8 +1,8 @@
 # Inkitt Test - React Native Android App
 
-This test aims to get a **html** text from an endpoint **parse** it to **Native Components, not as a webview**.
+This test aims to get a **html** text from an endpoint and **parse** it to **Native Components, not as webview**.
 
-For solve this task I used :
+To solve this task I used :
 
 - the open-source component `react-native-htmlview` made by **jsdf** in https://github.com/jsdf/react-native-htmlview#install.
 - `axios` for http requests
@@ -23,4 +23,4 @@ For solve this task I used :
 
 ## Registred App
 
-Generated App in folter `./android/..../`
+Generated App in folter `./android/app/build/outputs/apk/app-realease.apk`
