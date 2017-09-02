@@ -59,9 +59,7 @@ export default class inkitt extends Component {
         this.setState({
             htmlContent: this.currentChapter.text,
             title: this.currentChapter.name,
-            readingTime: `${this.timeSpent(
-                this.currentChapter.words_count
-            )}`,
+            readingTime: `${this.timeSpent(this.currentChapter.words_count)}`,
             loaded: true
         })
     }
@@ -75,7 +73,10 @@ export default class inkitt extends Component {
     async haveNextChapter() {
         // Try to get the next chapter
         try {
-            res = await axios.get( `https://cap_america.inkitt.de/1/stories/106766/chapters/${this.indexChapter + 1}` )
+            res = await axios.get(
+                `https://cap_america.inkitt.de/1/stories/106766/chapters/${this
+                    .indexChapter + 1}`
+            )
         } catch (error) {
             return this.setState({ haveNextChapter: false })
         }
@@ -122,11 +123,13 @@ export default class inkitt extends Component {
         this.updateStateWithCurrentChapter()
     }
 
-
     async componentWillMount() {
         // Fetch data
         try {
-            res = await axios.get( `https://cap_america.inkitt.de/1/stories/106766/chapters/${this.indexChapter}` )
+            res = await axios.get(
+                `https://cap_america.inkitt.de/1/stories/106766/chapters/${this
+                    .indexChapter}`
+            )
             this.currentChapter = res.data.response
             // initialize state
             await this.updateStateWithCurrentChapter()
@@ -150,13 +153,6 @@ export default class inkitt extends Component {
                 </View>
 
                 <ScrollView>
-                    <View style={styles.container}>
-                        <HTMLView
-                            value={this.state.htmlContent}
-                            stylesheet={styles.htmlContent}
-                        />
-                    </View>
-
                     {/* Prev Buttom */}
                     {this.state.havePrevChapter && (
                         <TouchableHighlight
@@ -168,6 +164,14 @@ export default class inkitt extends Component {
                             <Text style={styles.title}> Previous Chapter</Text>
                         </TouchableHighlight>
                     )}
+
+                    <View style={styles.container}>
+                        <HTMLView
+                            value={this.state.htmlContent}
+                            stylesheet={styles.htmlContent}
+                        />
+                    </View>
+
                     {/* Next Buttom */}
                     {this.state.haveNextChapter && (
                         <TouchableHighlight
