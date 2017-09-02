@@ -1,6 +1,5 @@
 # Inkitt Test - React Native Android App
 
-![App Preview](https://github.com/marco-souza/inkitt/blob/master/src/assets/gif/app.gif)
 
 This test aims to get a **html** text from an endpoint and **parse** it to **Native Components, not as webview**.
 
@@ -11,6 +10,8 @@ To solve this task I used :
 - `flow` for typing JavaScript
 - `jest` for tests
 - `react-native-loader` to create a Pulse Loader Component
+
+![App Preview](https://github.com/marco-souza/inkitt/blob/master/src/assets/gif/app.gif)
 
 ## App Features
 
