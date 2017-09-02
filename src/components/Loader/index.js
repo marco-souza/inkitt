@@ -22,6 +22,4 @@ class Component extends React.Component<Props> {
     }
 }
 
-// TODO: Make Unit test with jest
-
 export default Component
