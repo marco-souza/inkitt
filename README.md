@@ -1,4 +1,4 @@
-# Inkitt Test - React Native App
+# Inkitt Test - React Native Android App
 
 This test aims to get a **html** text from an endpoint **parse** it to **Native Components, not as a webview**.
 
