@@ -8,8 +8,11 @@ const styles = Object.assign(
         container: {
             backgroundColor: "#F5FCFF",
             padding: 10
-            // paddingTop: 20,
-            // paddingBottom: 20,
+        },
+        body: {
+            flex: 1,
+            flexDirection: "column",
+            backgroundColor: "#F5FCFF"
         },
         title: {
             fontSize: 20,
@@ -19,20 +22,14 @@ const styles = Object.assign(
             fontSize: 8,
             textAlign: "center"
         },
+        navigation: {
+            backgroundColor: "#F5FCFF",
+            padding: 5
+        },
         header: {
             backgroundColor: "#F5FCFF",
             padding: 5,
             width: "100%"
-            // Border
-            // borderWidth: 1,
-            // borderRadius: 1,
-            // borderColor: '#ddd',
-            // borderBottomWidth: 0,
-            // Shadow
-            // shadowColor: '#000',
-            // shadowOffset: { width: 0, height: 2 },
-            // shadowOpacity: 0.8,
-            // shadowRadius: 2,
         }
     }),
     {
